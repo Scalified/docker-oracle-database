@@ -48,13 +48,18 @@ GRANT ALL PRIVILEGES TO <username>
 ### Creating Pluggable Database
 
 ```sql
-CREATE PLUGGABLE DATABASE <db_name> ADMIN USER <username> IDENTIFIED BY <password> FILE_NAME_CONVERT=('/opt/oracle/oradata/APSUSER/pdbseed/','/opt/oracle/oradata/APSUSER/<db_name>')
+CREATE PLUGGABLE DATABASE <pdb_name> ADMIN USER <username> IDENTIFIED BY <password> FILE_NAME_CONVERT=('/opt/oracle/oradata/<cdb_name>/pdbseed/','/opt/oracle/oradata/<cdb_name>/<pdb_name>')
 ;
-ALTER PLUGGABLE DATABASE <db_name> OPEN
+ALTER PLUGGABLE DATABASE <pdb_name> OPEN
 ;
-ALTER PLUGGABLE DATABASE <db_name> SAVE STATE
+ALTER PLUGGABLE DATABASE <pdb_name> SAVE STATE
 ;
 ```
+
+where:
+
+* **\<pdb_name\>** - pluggable database name to create
+* **\<cdb_name\>** - container database name (**SID**)
 
 ## Scalified Links
 
