@@ -1,0 +1,3 @@
+[submodule "oracle-docker-images"]
+	path = oracle-docker-images
+	url = https://github.com/oracle/docker-images.git
