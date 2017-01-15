@@ -16,6 +16,7 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 | Version                     | Description                 |
 |-----------------------------|-----------------------------|
+| **12.1.0.2-se2**            | 12.1.0.2 Standard Edition   |
 | **12.1.0.2-ee**             | 12.1.0.2 Enterprise Edition |
 
 ## Building Docker Image
@@ -26,6 +27,34 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 3. Put downloaded files from *step 2* into the correspondent Oracle version folder in the:  
    **`oracle-docker-images/OracleDatabase/dockerfiles`**
 4. Proceed with [official building instructions](https://github.com/oracle/docker-images/tree/master/OracleDatabase#building-oracle-database-docker-install-images)
+
+## Database Configuration
+
+### Default Admin Accounts Passwords
+
+On the first startup of the container a random password is generated for the database and shown in log message:
+
+`ORACLE AUTO GENERATED PASSWORD FOR SYS, SYSTEM AND PDBAMIN: <password goes here>`
+
+### Creating a User
+
+```sql
+CREATE USER <username> IDENTIFIED BY <password>
+;
+GRANT ALL PRIVILEGES TO <username>
+;
+```
+
+### Creating Pluggable Database
+
+```sql
+CREATE PLUGGABLE DATABASE <db_name> ADMIN USER <username> IDENTIFIED BY <password> FILE_NAME_CONVERT=('/opt/oracle/oradata/APSUSER/pdbseed/','/opt/oracle/oradata/APSUSER/<db_name>')
+;
+ALTER PLUGGABLE DATABASE <db_name> OPEN
+;
+ALTER PLUGGABLE DATABASE <db_name> SAVE STATE
+;
+```
 
 ## Scalified Links
 
