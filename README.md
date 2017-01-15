@@ -16,10 +16,11 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 ## Building Docker Image
 
-1. Increase Docker container size by adding the following option to the daemon start: 
+1. Increase Docker container size by adding the following option to the daemon start:  
    `--storage-opt dm.basesize=20G`
 2. Download Oracle installation files from [Oracle Database Software Downloads](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)
-3. Put downloaded files from step 2 into the correspondent Oracle version under the ...
+3. Put downloaded files from *step 2* into the correspondent Oracle version folder in the:  
+   `**oracle-docker-images/OracleDatabase/dockerfiles**`
 4. Proceed with [official building instructions](https://github.com/oracle/docker-images/tree/master/OracleDatabase#building-oracle-database-docker-install-images)
 
 ## Scalified Links
