@@ -12,7 +12,11 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 ## Dockerhub
 
-`docker pull scalified/oracle-database`
+`docker pull scalified/oracle-database:<version>`
+
+| Version                     | Description                 |
+|-----------------------------|-----------------------------|
+| **12.1.0.2-ee**             | 12.1.0.2 Enterprise Edition |
 
 ## Building Docker Image
 
