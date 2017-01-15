@@ -48,7 +48,8 @@ GRANT ALL PRIVILEGES TO <username>
 ### Creating Pluggable Database
 
 ```sql
-CREATE PLUGGABLE DATABASE <pdb_name> ADMIN USER <username> IDENTIFIED BY <password> FILE_NAME_CONVERT=('/opt/oracle/oradata/<cdb_name>/pdbseed/','/opt/oracle/oradata/<cdb_name>/<pdb_name>')
+CREATE PLUGGABLE DATABASE <pdb_name> ADMIN USER <username> IDENTIFIED BY <password> 
+  FILE_NAME_CONVERT=('/opt/oracle/oradata/<cdb_name>/pdbseed/','/opt/oracle/oradata/<cdb_name>/<pdb_name>')
 ;
 ALTER PLUGGABLE DATABASE <pdb_name> OPEN
 ;
