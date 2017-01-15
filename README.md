@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository is used for building a [**Docker**](https://www.docker.com) image containing [Oracle Database](https://www.oracle.com/database/index.html)
+This repository is used for building a [**Docker**](https://www.docker.com) image containing [**Oracle Database**](https://www.oracle.com/database/index.html)
 
 ## Official Documentation
 
@@ -22,7 +22,7 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 ## Building Docker Image
 
 1. Increase Docker container size by adding the following option to the daemon start:  
-   `--storage-opt dm.basesize=20G`
+   **`--storage-opt dm.basesize=20G`**
 2. Download Oracle installation files from [Oracle Database Software Downloads](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)
 3. Put downloaded files from *step 2* into the correspondent Oracle version folder in the:  
    **`oracle-docker-images/OracleDatabase/dockerfiles`**
