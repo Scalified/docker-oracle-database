@@ -1,5 +1,11 @@
 # Oracle Database Docker
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/scalified/oracle-database.svg)](https://hub.docker.com/r/scalified/oracle-database)
+[![](https://images.microbadger.com/badges/image/scalified/oracle-database:12.1.0.2-se2.svg)](https://microbadger.com/images/scalified/oracle-database:12.1.0.2-se2 "12.1.0.2-se2")
+[![](https://images.microbadger.com/badges/image/scalified/oracle-database:12.1.0.2-ee.svg)](https://microbadger.com/images/scalified/oracle-database:12.1.0.2-ee "12.1.0.2-ee")
+[![](https://images.microbadger.com/badges/version/scalified/oracle-database:12.1.0.2-se2.svg)](https://microbadger.com/images/scalified/oracle-database:12.1.0.2-se2 "12.1.0.2-se2")
+[![](https://images.microbadger.com/badges/version/scalified/oracle-database:12.1.0.2-ee.svg)](https://microbadger.com/images/scalified/oracle-database:12.1.0.2-ee "12.1.0.2-ee")
+
 ## Description
 
 This repository is used for building a [**Docker**](https://www.docker.com) image containing [**Oracle Database**](https://www.oracle.com/database/index.html)
@@ -12,7 +18,7 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 ## Dockerhub
 
-`docker pull scalified/oracle-database:<version>`
+**`docker pull scalified/oracle-database:<version>`**
 
 | Version                     | Description                 |
 |-----------------------------|-----------------------------|
