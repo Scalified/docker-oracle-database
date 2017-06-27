@@ -32,6 +32,16 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
    **`oracle-docker-images/OracleDatabase/dockerfiles`**
 4. Proceed with [official building instructions](https://github.com/oracle/docker-images/tree/master/OracleDatabase#building-oracle-database-docker-install-images)
 
+## Connecting to Database
+
+Once the container has been started and the database created you can connect to it just like to any other database:
+
+```
+sqlplus sys/<your password>@//localhost:1521/<your SID> as sysdba
+sqlplus system/<your password>@//localhost:1521/<your SID>
+sqlplus pdbadmin/<your password>@//localhost:1521/<Your PDB name>
+```
+
 ## Database Configuration
 
 ### Default Admin Accounts Passwords
