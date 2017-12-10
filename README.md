@@ -20,9 +20,9 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 | Version                     | Description                 |
 |-----------------------------|-----------------------------|
+| **12.2.0.1-ee**             | 12.2.0.1 Enterprise Edition |
 | **12.1.0.2-se2**            | 12.1.0.2 Standard Edition   |
 | **12.1.0.2-ee**             | 12.1.0.2 Enterprise Edition |
-| **12.2.0.1-ee**             | 12.2.0.1 Enterprise Edition |
 
 ## Building Docker Image
 
