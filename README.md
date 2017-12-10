@@ -40,6 +40,7 @@ Once the container has been started and the database created you can connect to 
 ```
 sqlplus sys/<your password>@//localhost:1521/<your SID> as sysdba
 sqlplus system/<your password>@//localhost:1521/<your SID>
+sqlplus sys/<your password>@//localhost:1521/<Your PDB name>
 sqlplus pdbadmin/<your password>@//localhost:1521/<Your PDB name>
 ```
 
@@ -51,7 +52,7 @@ On the first startup of the container a random password is generated for the dat
 
 `ORACLE AUTO GENERATED PASSWORD FOR SYS, SYSTEM AND PDBAMIN: <password goes here>`
 
-### Creating a User
+### Creating a User Inside Pluggable Database
 
 ```sql
 CREATE USER <username> IDENTIFIED BY <password>
