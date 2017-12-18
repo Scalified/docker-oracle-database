@@ -40,7 +40,7 @@ Once the container has been started and the database created you can connect to 
 ```
 sqlplus sys/<your password>@//localhost:1521/<your SID> as sysdba
 sqlplus system/<your password>@//localhost:1521/<your SID>
-sqlplus sys/<your password>@//localhost:1521/<Your PDB name>
+sqlplus sys/<your password>@//localhost:1521/<Your PDB name> as sysdba
 sqlplus pdbadmin/<your password>@//localhost:1521/<Your PDB name>
 ```
 
