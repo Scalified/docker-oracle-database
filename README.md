@@ -18,13 +18,36 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 **`docker pull scalified/oracle-database:<version>`**
 
-| Version                     | Description                 |
-|-----------------------------|-----------------------------|
-| **12.2.0.1-ee**             | 12.2.0.1 Enterprise Edition |
-| **12.1.0.2-se2**            | 12.1.0.2 Standard Edition   |
-| **12.1.0.2-ee**             | 12.1.0.2 Enterprise Edition |
+| Version                     | Description                   |
+|-----------------------------|-------------------------------|
+| **11g-r2**                  | 11g Release 2 Express Edition |
+| **12.2.0.1-ee**             | 12.2.0.1 Enterprise Edition   |
+| **12.1.0.2-se2**            | 12.1.0.2 Standard Edition     |
+| **12.1.0.2-ee**             | 12.1.0.2 Enterprise Edition   |
 
-## Building Docker Image
+## Oracle 11.x Releases
+
+Currently only 11g Release 2 is supported
+
+### Connection Settings
+
+#### JDBC URL
+
+```
+jdbc:oracle:thin:@//localhost:1521/xe
+```
+
+#### Credentials
+
+| User      | Password | Description  |
+|-----------|----------|--------------|
+| system    | oracle   | System user  |
+| sys       | oracle   | System user  |
+| scalified | 123456   | Regular user |
+
+## Oracle 12.x Releases
+
+### Building Docker Images
 
 1. Increase Docker container size by adding the following option to the daemon start:  
    **`--storage-opt dm.basesize=20G`**
@@ -33,7 +56,7 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
    **`oracle-docker-images/OracleDatabase/dockerfiles`**
 4. Proceed with [official building instructions](https://github.com/oracle/docker-images/tree/master/OracleDatabase#building-oracle-database-docker-install-images)
 
-## Connecting to Database
+### Connecting to Database
 
 Once the container has been started and the database created you can connect to it just like to any other database:
 
@@ -44,15 +67,15 @@ sqlplus sys/<your password>@//localhost:1521/<Your PDB name> as sysdba
 sqlplus pdbadmin/<your password>@//localhost:1521/<Your PDB name>
 ```
 
-## Database Configuration
+### Database Configuration
 
-### Default Admin Accounts Passwords
+#### Default Admin Accounts Passwords
 
 On the first startup of the container a random password is generated for the database and shown in log message:
 
 `ORACLE AUTO GENERATED PASSWORD FOR SYS, SYSTEM AND PDBAMIN: <password goes here>`
 
-### Creating a User Inside Pluggable Database
+#### Creating a User Inside Pluggable Database
 
 ```sql
 CREATE USER <username> IDENTIFIED BY <password>
@@ -61,7 +84,7 @@ GRANT ALL PRIVILEGES TO <username>
 ;
 ```
 
-### Creating Pluggable Database
+#### Creating Pluggable Database
 
 ```sql
 CREATE PLUGGABLE DATABASE <pdb_name> ADMIN USER <username> IDENTIFIED BY <password> 
