@@ -29,6 +29,12 @@ This repository is used for building a [**Docker**](https://www.docker.com) imag
 
 Currently only 11g Release 2 is supported
 
+### Running Container
+
+```
+docker run -it --name oracle -p 1521:1521 scalified/oracle-database:<tag>
+```
+
 ### Connection Settings
 
 #### JDBC URL
