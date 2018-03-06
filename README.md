@@ -107,6 +107,26 @@ where:
 * **\<pdb_name\>** - pluggable database name to create
 * **\<cdb_name\>** - container database name (**SID**)
 
+#### Changing Enterprise Manager Endpoint
+
+1. Check the listener status:
+```cmd
+lsnrctl status
+```
+This will output endpoints:
+```cmd
+...
+Listening Endpoints Summary...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=0.0.0.0)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=67e0ca534f7b)(PORT=5500))(Presentation=HTTP)(Session=RAW))
+...
+```
+2. Login to sql as sysdba and execute procedure:
+```sql
+exec dbms_xdb_config.setListenerEndPoint(dbms_xdb_config.xdb_endpoint_http2, '67e0ca534f7b', 5500, dbms_xdb_config.xdb_protocol_tcp);
+```
+
 ## Scalified Links
 
 * [Scalified](http://www.scalified.com)
