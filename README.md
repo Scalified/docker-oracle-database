@@ -109,7 +109,7 @@ where:
 
 #### Changing Enterprise Manager Endpoint
 
-1. Check the listener status:
+Check the listener status:
 ```cmd
 lsnrctl status
 ```
@@ -122,9 +122,14 @@ Listening Endpoints Summary...
   (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=67e0ca534f7b)(PORT=5500))(Presentation=HTTP)(Session=RAW))
 ...
 ```
-2. Login to sql as sysdba and execute procedure:
+Login to sql as sysdba and execute procedure:
 ```sql
 exec dbms_xdb_config.setListenerEndPoint(dbms_xdb_config.xdb_endpoint_http2, '67e0ca534f7b', 5500, dbms_xdb_config.xdb_protocol_tcp);
+```
+
+More info:
+```
+https://www.morganslibrary.org/reference/pkgs/dbms_xdb_config.html
 ```
 
 ## Scalified Links
