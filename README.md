@@ -136,7 +136,7 @@ https://www.morganslibrary.org/reference/pkgs/dbms_xdb_config.html
 
 ```cmd
 echo "INBOUND_CONNECT_TIMEOUT_LISTENER=0" >> $ORACLE_HOME/network/admin/listener.ora
-echo "INBOUND_CONNECT_TIMEOUT_LISTENER=0" >> $ORACLE_HOME/network/admin/sqlnet.ora
+echo "SQLNET.INBOUND_CONNECT_TIMEOUT=0" >> $ORACLE_HOME/network/admin/sqlnet.ora
 ```
 
 ## Scalified Links
