@@ -132,6 +132,12 @@ More info:
 https://www.morganslibrary.org/reference/pkgs/dbms_xdb_config.html
 ```
 
+Setting EM ports:
+```sql
+exec DBMS_XDB_CONFIG.SETHTTPSPORT(5500);
+exec DBMS_XDB_CONFIG.SETHTTPPORT(5510);
+```
+
 #### Changing Connection Timeouts
 
 ```cmd
