@@ -1,8 +1,9 @@
 name: Publish Docker image
 
 on:
-  release:
-    types: [ "published" ]
+  push:
+    tags:
+      - '**'
 
 jobs:
   push_to_registry:
@@ -11,6 +12,7 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -22,6 +24,7 @@ jobs:
           registry: container-registry.oracle.com
           username: ${{ secrets.ORACLE_USERNAME }}
           password: ${{ secrets.ORACLE_PASSWORD }}
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
@@ -29,8 +32,9 @@ jobs:
           images: scalified/oracle-database
           tags: |
             type=ref,event=tag
+
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true

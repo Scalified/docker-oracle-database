@@ -1,0 +1,27 @@
+#!/bin/sh
+
+PDB_NAME="$1"
+PDB_USER="$2"
+PDB_PASSWORD="$3"
+
+SCRIPTS_DIR="/usr/local/share/oracle"
+
+export ORACLE_SID="${ORACLE_SID:-ORCLCDB}"
+
+validate_variable() {
+    if [ -z "$(eval "echo \$$1")" ]; then
+        echo "[ERROR]: '$1' environment variable undefined"
+        exit 1
+    fi
+}
+
+validate_variable PDB_NAME
+validate_variable PDB_USER
+validate_variable PDB_PASSWORD
+
+sqlplus -S /nolog <<EOF
+CONNECT / as sysdba
+@$SCRIPTS_DIR/create-pdb.sql $ORACLE_SID $PDB_NAME $PDB_USER $PDB_PASSWORD
+EXIT
+EOF
+

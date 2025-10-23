@@ -1,0 +1,23 @@
+#!/bin/sh
+
+PDB_NAME="$1"
+
+SCRIPTS_DIR="/usr/local/share/oracle"
+
+export ORACLE_SID="${ORACLE_SID:-ORCLCDB}"
+
+validate_variable() {
+    if [ -z "$(eval "echo \$$1")" ]; then
+        echo "[ERROR]: '$1' environment variable undefined"
+        exit 1
+    fi
+}
+
+validate_variable PDB_NAME
+
+sqlplus -S /nolog <<EOF
+CONNECT / as sysdba
+@$SCRIPTS_DIR/drop-pdb.sql "$PDB_NAME"
+EXIT
+EOF
+
