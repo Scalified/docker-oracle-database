@@ -20,4 +20,3 @@ CONNECT / as sysdba
 @$SCRIPTS_DIR/drop-pdb.sql "$PDB_NAME"
 EXIT
 EOF
-

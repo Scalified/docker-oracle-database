@@ -1,11 +1,11 @@
-# Docker Oracle Database
+# Docker Oracle Enterprise Database
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/scalified/dind.svg)](https://hub.docker.com/r/scalified/dind)
-[![Release](https://img.shields.io/github/v/release/Scalified/oracle-database?style=flat-square)](https://github.com/Scalified/docker-oracle-database/releases/latest)
+[![Docker Pulls](https://img.shields.io/docker/pulls/scalified/oracle-database.svg)](https://hub.docker.com/r/scalified/oracle-database)
+[![Release](https://img.shields.io/github/v/release/Scalified/docker-oracle-database?style=flat-square)](https://github.com/Scalified/docker-oracle-database/releases/latest)
 
 ## Overview
 
-This repository provides prebuilt [**Oracle Database**](https://container-registry.oracle.com) **Docker** images bundled with additional management scripts for simplified setup and configuration
+This repository provides a prebuilt [**Oracle Database Enterprise Edition**](https://container-registry.oracle.com) **Docker** image with automatic setup and additional configuration scripts for simplified database management
 
 ## Official Resources
 
@@ -19,18 +19,18 @@ This repository provides prebuilt [**Oracle Database**](https://container-regist
 ```bash
 docker run -d \
     --name oracledb \
-    scalified/oracle-database:19.3.0.0-ee
+    scalified/oracle-database:<version>
 ```
 
 ### Available Versions
 
-| Version                     | Description                   |
-|-----------------------------|-------------------------------|
-| **19.3.0.0-ee**             | 19.3.0.0 Enterprise Edition   |
-| **12.2.0.1-ee**             | 12.2.0.1 Enterprise Edition   |
-| **12.1.0.2-se2**            | 12.1.0.2 Standard Edition     |
-| **12.1.0.2-ee**             | 12.1.0.2 Enterprise Edition   |
-| **11g-r2**                  | 11g Release 2 Express Edition |
+| Version          |
+|------------------|
+| **19.3.0.0**     |
+| **12.2.0.1-ee**  |
+| **12.1.0.2-se2** |
+| **12.1.0.2-ee**  |
+| **11g-r2**       |
 
 ### Connecting to the Database
 
@@ -45,18 +45,15 @@ sqlplus pdbadmin/<your password>@//localhost:1521/<Your PDB name>
 
 ### Configuration
 
-#### Setup
+#### Automatic Setup
 
-To run the setup script inside the Oracle container, execute:
-
-```
-docker exec <oracle_container_name> setup
-```
-This script performs the following configuration steps:
+The setup script is automatically executed during the initial container startup. It performs the following configuration steps:
 
 * Disables local undo, preventing the database from using locally managed undo segments
 * Sets the `PGA` aggregate limit to `0`, removing the global hard cap on total `PGA` memory usage
 * Updates the `SPFILE` to include `PROCESSES=2000`, allowing up to `2000` server processes or sessions after the next database restart
+
+No manual setup is required.
 
 #### Creating a Pluggable Database (PDB)
 
@@ -118,4 +115,3 @@ echo "SQLNET.INBOUND_CONNECT_TIMEOUT=0" >> $ORACLE_HOME/network/admin/sqlnet.ora
 ---
 
 **Made with ❤️ by [Scalified](http://www.scalified.com)**
-
