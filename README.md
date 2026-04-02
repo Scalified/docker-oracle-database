@@ -1,7 +1,7 @@
 # Docker Oracle Database
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/scalified/dind.svg)](https://hub.docker.com/r/scalified/dind)
-[![Release](https://img.shields.io/github/v/release/Scalified/oracle-database?style=flat-square)](https://github.com/Scalified/docker-oracle-database/releases/latest)
+[![Release](https://img.shields.io/github/v/release/Scalified/docker-oracle-database?style=flat-square)](https://github.com/Scalified/docker-oracle-database/releases/latest)
 
 ## Overview
 
